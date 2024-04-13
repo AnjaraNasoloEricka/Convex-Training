@@ -20,8 +20,7 @@ jobs:
     - name: Checkout destination repository
       uses: actions/checkout@v2
       with:
-        repository: https://github.com/AnjaraNasoloEricka/Test_Replica.git
-        token: ${{ secrets.GA_KEY_TOKEN }}
+        repository: AnjaraNasoloEricka/Test_Replica.git
         ref : main
         path: Test_Replica
 
@@ -36,3 +35,5 @@ jobs:
         git add .
         git commit -m "[chore] Update directory from source repository"
         git push https://github.com/AnjaraNasoloEricka/Test_Replica.git HEAD:main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GA_KEY_TOKEN }}
