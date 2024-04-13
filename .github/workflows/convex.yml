@@ -1,0 +1,35 @@
+name: Copy and Replace Convex Directory
+
+on:
+  push:
+    branches:
+      - dev 
+
+jobs:
+  copy_and_replace:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source repository
+      uses: actions/checkout@v2
+      with:
+        repository: NasoloEricka/Webcup-Training
+        path: Webcup-Training
+
+    - name: Checkout destination repository
+      uses: actions/checkout@v2
+      with:
+        repository: AnjaraNasoloEricka/Test
+        path: Test
+
+    - name: Copy directory from source to destination
+      run: cp -R Webcup-Training/convex Test/
+
+    - name: Commit and push changes
+      run: |
+        cd Test
+        git config user.name "NasoloEricka"
+        git config user.email "anjaranasoloericka@gmail.com"
+        git add .
+        git commit -m "[chore] Update directory from source repository"
+        git push
