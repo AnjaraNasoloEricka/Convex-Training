@@ -25,7 +25,7 @@ jobs:
     - name: Checkout destination repository
       uses: actions/checkout@v2
       with:
-        repository: AnjaraNasoloEricka/Test_Replica.git
+        repository: git@github.com:AnjaraNasoloEricka/Test_Replica.git
         ref : main
         path: Test_Replica
 
