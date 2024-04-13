@@ -13,14 +13,13 @@ jobs:
     - name: Checkout source repository
       uses: actions/checkout@v2
       with:
-        repository: git@github.com:AnjaraNasoloEricka/Webcup-Training.git
-        token: ${{ secrets.Work_laptop }} 
+        repository: https://github.com/AnjaraNasoloEricka/Webcup-Training.git
         path: Webcup-Training
 
     - name: Checkout destination repository
       uses: actions/checkout@v2
       with:
-        repository: git@github.com:AnjaraNasoloEricka/Test_Replica.git
+        repository: https://github.com/AnjaraNasoloEricka/Test_Replica.git
         token: ${{ secrets.Work_laptop }}
         path: Test_Replica
 
