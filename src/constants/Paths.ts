@@ -12,4 +12,12 @@ export default {
     Update: '/update',
     Delete: '/delete/:id',
   },
+  Task: {
+    Base : '/task',
+    GetById : '/get/:id',
+    Get : '/all',
+    Add : '/add',
+    Update : '/update/:id',
+    Delete : '/delete/:id',
+  }
 } as const;

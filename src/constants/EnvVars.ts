@@ -4,6 +4,9 @@
 
 /* eslint-disable node/no-process-env */
 
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export default {
   NodeEnv: (process.env.NODE_ENV ?? ''),
@@ -25,4 +28,7 @@ export default {
     Secret: (process.env.JWT_SECRET ??  ''),
     Exp: (process.env.COOKIE_EXP ?? ''), // exp at the same time as the cookie
   },
+  Convex : {
+    Url: (process.env.CONVEX_URL ?? ''),
+  }
 } as const;
