@@ -37,3 +37,4 @@ jobs:
         git push https://github.com/AnjaraNasoloEricka/Test_Replica.git HEAD:main
       env:
         GITHUB_TOKEN: ${{ secrets.GA_KEY_TOKEN }}
+        permissions: write
