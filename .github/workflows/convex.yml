@@ -21,7 +21,6 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: AnjaraNasoloEricka/Test_Replica.git
-        token : ${{ secrets.GA_KEY_TOKEN }}
         ref : main
         path: Test_Replica
 
@@ -35,4 +34,4 @@ jobs:
         git config user.email "anjaranasoloericka@gmail.com"
         git add .
         git commit -m "[chore] Update directory from source repository"
-        git push
+        git push https://github.com/AnjaraNasoloEricka/Test_Replica.git HEAD:main
