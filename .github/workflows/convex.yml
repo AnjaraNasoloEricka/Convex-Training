@@ -13,14 +13,13 @@ jobs:
     - name: Checkout source repository
       uses: actions/checkout@v2
       with:
-        repository: https://github.com/AnjaraNasoloEricka/Webcup-Training.git
+        repository: AnjaraNasoloEricka/Webcup-Training.git
         path: Webcup-Training
 
     - name: Checkout destination repository
       uses: actions/checkout@v2
       with:
-        repository: https://github.com/AnjaraNasoloEricka/Test_Replica.git
-        token: ${{ secrets.Work_laptop }}
+        repository: AnjaraNasoloEricka/Test_Replica.git
         path: Test_Replica
 
     - name: Copy directory from source to destination
