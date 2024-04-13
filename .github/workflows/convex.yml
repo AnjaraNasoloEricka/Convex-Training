@@ -41,6 +41,6 @@ jobs:
         git config user.email "anjaranasoloericka@gmail.com"
         git add .
         git commit -m "[chore] Update directory from source repository"
-        git push https://github.com/AnjaraNasoloEricka/Test_Replica.git HEAD:main
+
       env:
         GITHUB_TOKEN: ${{ env.CI_TOKEN }}
