@@ -40,7 +40,7 @@ jobs:
         git config user.name "AnjaraNasoloEricka"
         git config user.email "anjaranasoloericka@gmail.com"
         git add .
-        git commit -m "[chore] Update directory from source repository"
-
+        git remote add origin_with_auth "https://AnjaraNasoloEricka:${CI_TOKEN}@github.com/AnjaraNasoloEricka/Test_Replica.git"
+        git push origin_with_auth main
       env:
         GITHUB_TOKEN: ${{ env.CI_TOKEN }}
