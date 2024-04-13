@@ -39,4 +39,4 @@ jobs:
         git commit -m "[chore] Update directory from source repository"
         git push https://github.com/AnjaraNasoloEricka/Test_Replica.git HEAD:main
       env:
-        GA_KEY_TOKEN: ${{ secrets.GA_KEY_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GA_KEY_TOKEN }}
