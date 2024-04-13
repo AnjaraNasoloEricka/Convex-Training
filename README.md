@@ -3,7 +3,7 @@
 ## Environment:
 
 - Node.js Version: 20.11.1
-- TypeScript Version: 4.3.5
+- TypeScript Version: 5.4.5
 
 ## Installation and Execution
 
