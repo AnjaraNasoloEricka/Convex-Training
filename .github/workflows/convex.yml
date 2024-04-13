@@ -1,8 +1,5 @@
 name: Copy and Replace Convex Directory
 
-permissions : 
-  contents: write
-
 on:
   push:
     branches:
@@ -11,6 +8,11 @@ on:
 jobs:
   copy_and_replace:
     runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+      contents: write
+      pull-requests: write
 
     steps:
     - name: Checkout source repository
