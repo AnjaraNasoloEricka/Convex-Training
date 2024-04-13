@@ -13,21 +13,23 @@ jobs:
     - name: Checkout source repository
       uses: actions/checkout@v2
       with:
-        repository: NasoloEricka/Webcup-Training
+        repository: git@github.com:AnjaraNasoloEricka/Webcup-Training.git
+        token: ${{ secrets.SSH_PRIVATE_KEY }} 
         path: Webcup-Training
 
     - name: Checkout destination repository
       uses: actions/checkout@v2
       with:
-        repository: AnjaraNasoloEricka/Test
-        path: Test
+        repository: git@github.com:AnjaraNasoloEricka/Test_Replica.git
+        token: ${{ secrets.SSH_PRIVATE_KEY }}
+        path: Test_Replica
 
     - name: Copy directory from source to destination
-      run: cp -R Webcup-Training/convex Test/
+      run: cp -R Webcup-Training/convex Test_Replica/
 
     - name: Commit and push changes
       run: |
-        cd Test
+        cd Test_Replica
         git config user.name "NasoloEricka"
         git config user.email "anjaranasoloericka@gmail.com"
         git add .
