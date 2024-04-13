@@ -20,7 +20,8 @@ jobs:
     - name: Checkout destination repository
       uses: actions/checkout@v2
       with:
-        repository: AnjaraNasoloEricka/Test_Replica.git
+        repository: https://github.com/AnjaraNasoloEricka/Test_Replica.git
+        token: ${{ secrets.GA_KEY_TOKEN }}
         ref : main
         path: Test_Replica
 
