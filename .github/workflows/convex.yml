@@ -41,7 +41,7 @@ jobs:
         git config user.name "AnjaraNasoloEricka"
         git config user.email "anjaranasoloericka@gmail.com"
         git add .
-        git remote add origin_with_auth "https://AnjaraNasoloEricka:${CI_TOKEN}@github.com/AnjaraNasoloEricka/Test_Replica.git"
-        git push origin_with_auth main
+        git remote add origin "https://github.com/AnjaraNasoloEricka/Test_Replica.git"
+        git push origin main
       env:
-        GITHUB_TOKEN: ${{ env.CI_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
