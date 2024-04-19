@@ -8,7 +8,7 @@ import app from '@src/server';
 import UserRepo from '@src/repos/UserRepo';
 import User, { IUser } from '@src/models/User';
 import HttpStatusCodes from '@src/constants/HttpStatusCodes';
-import { USER_NOT_FOUND_ERR } from '@src/services/UserService';
+import { USER_NOT_FOUND_ERR } from '@src/services/convex/UserService';
 
 import Paths from 'spec/support/Paths';
 import apiCb from 'spec/support/apiCb';
