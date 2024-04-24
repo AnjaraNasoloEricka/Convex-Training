@@ -15,6 +15,13 @@ export const getUserById = query({
     },
 });
 
+export const getUserByEmail = query({
+    args: {email: v.string()},
+    handler: async (ctx, args) => {
+        return await ctx.db.get(args.email);
+    },
+});
+
 export const addUser = mutation({
     args: {
         user: v.object({

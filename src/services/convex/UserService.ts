@@ -28,6 +28,16 @@ function getById(id: any): Promise<IUser> {
         });
 }
 
+function getByEmail(email: string): Promise<IUser> {
+    return client.query(api.users.getUserByEmail, {email})
+        .then((result: IUser | null) => {
+            if (result === null) {
+                throw new Error(USER_NOT_FOUND_ERR);
+            }
+            return result;
+        });
+}
+
 /**
  * Add one user.
  */

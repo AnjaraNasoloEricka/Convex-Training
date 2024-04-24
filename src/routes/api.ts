@@ -1,51 +1,65 @@
-import { Router } from 'express';
+import {Router} from 'express';
 import jetValidator from 'jet-validator';
 
 import Paths from '../constants/Paths';
 import User from '@src/models/User';
 import Task from '@src/models/Task';
+import AuthData from '@src/models/AuthData';
 import UserRoutes from './UserRoutes';
 import TaskRouter from './TaskRoutes';
+import AuthRouter from './AuthRoutes';
 
 
 // **** Variables **** //
 
 const apiRouter = Router(),
-  validate = jetValidator();
+    validate = jetValidator();
 
 // Add TaskRouter (convex example)
 const taskRouter = Router();
 
+const authRouter = Router();
+
+// Authenticate an user
+authRouter.post(
+    Paths.Auth.Attempt,
+    validate(['user', AuthData.isValid]),
+    AuthRouter.attempt,
+);
+
+apiRouter.use(Paths.Auth.Base, authRouter);
+
+
 // Get all tasks
 taskRouter.get(
-  Paths.Task.Get,
-  TaskRouter.getAll,
+    Paths.Task.Get,
+    TaskRouter.getAll,
 );
 
 // Get task by id
 taskRouter.get(
-  Paths.Task.GetById,
-  TaskRouter.getById,
+    Paths.Task.GetById,
+    TaskRouter.getById,
 );
 
 // Add one task
 taskRouter.post(
-  Paths.Task.Add,
-  validate(['task', Task.isTask]),
-  TaskRouter.addTask,
+    Paths.Task.Add,
+    validate(['task', Task.isTask]),
+    TaskRouter.addTask,
 );
 
 // Update one task
 taskRouter.put(
-  Paths.Task.Update,
-  validate(['task', Task.isTask]),
-  TaskRouter.updateTask,
+    Paths.Task.Update,
+    validate(['task', Task.isTask]),
+    TaskRouter.updateTask,
 );
 
 // Delete one task
 taskRouter.delete(
-  Paths.Task.Delete,
-  TaskRouter.deleteTask,
+    Paths.Task.Delete,
+    TaskRouter.deleteTask,
 );
 
 apiRouter.use(Paths.Task.Base, taskRouter);
@@ -56,29 +70,29 @@ const userRouter = Router();
 
 // Get all users
 userRouter.get(
-  Paths.Users.Get,
-  UserRoutes.getAll,
+    Paths.Users.Get,
+    UserRoutes.getAll,
 );
 
 // Add one user
 userRouter.post(
-  Paths.Users.Add,
-  validate(['user', User.isUser]),
-  UserRoutes.add,
+    Paths.Users.Add,
+    validate(['user', User.isUser]),
+    UserRoutes.add,
 );
 
 // Update one user
 userRouter.put(
-  Paths.Users.Update,
-  validate(['user', User.isUser]),
-  UserRoutes.update,
+    Paths.Users.Update,
+    validate(['user', User.isUser]),
+    UserRoutes.update,
 );
 
 // Delete one user
 userRouter.delete(
-  Paths.Users.Delete,
-  validate(['id', 'number', 'params']),
-  UserRoutes.delete,
+    Paths.Users.Delete,
+    validate(['id', 'number', 'params']),
+    UserRoutes.delete,
 );
 
 // Add UserRouter
